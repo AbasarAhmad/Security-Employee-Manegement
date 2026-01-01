@@ -11,3 +11,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+#Security Related Configuration
+
+#Manually spring ke liye Username and Password set kr rahe hai
+  security:
+    user:
+      name: alpha
+      password: alpha123
