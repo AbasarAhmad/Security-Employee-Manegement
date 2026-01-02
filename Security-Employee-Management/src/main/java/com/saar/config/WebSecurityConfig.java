@@ -11,7 +11,13 @@ public class WebSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain ( HttpSecurity httpSecurity) {
-		httpSecurity.formLogin(Customizer.withDefaults());
+		httpSecurity.authorizeHttpRequests(auth -> auth.
+//				Anyone Can Access api who's start with employee/***
+//				requestMatchers("/employees/**").permitAll()
+				
+	// Now to fetch any api starts with /employee need to authenticate			
+				requestMatchers("/employees/**").authenticated()
+				).formLogin(Customizer.withDefaults());
 		return  httpSecurity.build();
 	}
 }
